@@ -105,11 +105,11 @@ class EntityProxyPersistServiceTest extends KernelTestCase
         // There are two algorithms creating the same number of generic products
         // Plus 20 Luxury cars
         $n_total_products = ProductStory::COUNT_GENERIC_PRODUCTS * 2 + ProductStory::COUNT_LUXURY_CARS;
-        ProductFactory::repository()->assertCount($n_total_products);
+        ProductFactory::repository()->assert()->count($n_total_products);
 
         $this->loadCustomerStory();
         // There are two algorithms creating the same number of customers
-        CustomerFactory::repository()->assertCount(CustomerStory::COUNT_CUSTOMER * 2);
+        CustomerFactory::repository()->assert()->count(CustomerStory::COUNT_CUSTOMER * 2);
 
         $this->loadOrderStory();
         $a_random_customer_proxy_batch = CustomerFactory::repository()->randomSet(5);
@@ -117,7 +117,7 @@ class EntityProxyPersistServiceTest extends KernelTestCase
         $repo_order_item = OrderItemFactory::repository();
         //
         foreach ($a_random_customer_proxy_batch as $o_this_customer_proxy) {
-            $repo_order->assertExists(['customer' => $o_this_customer_proxy]);
+            $repo_order->assert()->exists(['customer' => $o_this_customer_proxy]);
             $o_this_customer_random_order = $repo_order->random(['customer' => $o_this_customer_proxy]);
             /** @var Order $this_order_entity */
             $this_order_entity = $o_this_customer_random_order->object();
@@ -237,7 +237,7 @@ class EntityProxyPersistServiceTest extends KernelTestCase
         $persistService->persistAndFlushAll();
 
         $repo = ProductFactory::repository();
-        $repo->assertExists([
+        $repo->assert()->exists([
             'productName' => $product->getProductName(),
         ]);
     }//end of function

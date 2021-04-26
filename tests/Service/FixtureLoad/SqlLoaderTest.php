@@ -53,12 +53,12 @@ class SqlLoaderTest extends KernelTestCase
         $sqlLoaderService = self::$container->get('test.voltel_extra_foundry.sql_loader');
         $sqlLoaderService->loadSqlDump();
 
-        AddressFactory::repository()->assertCountGreaterThanOrEqual(CustomerStory::COUNT_CUSTOMER);
-        CategoryFactory::repository()->assertCountGreaterThan(0);
-        CustomerFactory::repository()->assertCount(CustomerStory::COUNT_CUSTOMER);
-        OrderFactory::repository()->assertCountGreaterThanOrEqual(2 * CustomerStory::COUNT_CUSTOMER);
-        OrderItemFactory::repository()->assertCountGreaterThanOrEqual(3 * CustomerStory::COUNT_CUSTOMER);
-        ProductFactory::repository()->assertCountGreaterThanOrEqual(ProductStory::COUNT_GENERIC_PRODUCTS);
+        AddressFactory::repository()->assert()->countGreaterThanOrEqual(CustomerStory::COUNT_CUSTOMER);
+        CategoryFactory::repository()->assert()->countGreaterThan(0);
+        CustomerFactory::repository()->assert()->count(CustomerStory::COUNT_CUSTOMER);
+        OrderFactory::repository()->assert()->countGreaterThanOrEqual(2 * CustomerStory::COUNT_CUSTOMER);
+        OrderItemFactory::repository()->assert()->countGreaterThanOrEqual(3 * CustomerStory::COUNT_CUSTOMER);
+        ProductFactory::repository()->assert()->countGreaterThanOrEqual(ProductStory::COUNT_GENERIC_PRODUCTS);
     }//end of function
 
 }

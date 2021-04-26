@@ -156,7 +156,7 @@ class SetUpFixtureEntityServiceTest extends KernelTestCase
 
         $repo = CustomerFactory::repository();
         $n_expected_customers = count(self::SETUP_CUSTOMERS);
-        $repo->assertCount($n_expected_customers);
+        $repo->assert()->count($n_expected_customers);
 
         $a_humans = $repo->findBy(['isOrganization' => false]);
         $this->assertNotNull($a_humans);
@@ -168,7 +168,7 @@ class SetUpFixtureEntityServiceTest extends KernelTestCase
         $n_expected_companies = $n_expected_customers - $n_expected_humans;
         $this->assertCount($n_expected_companies, $a_companies);
 
-        $repo->assertExists(['firstName' => 'John', 'lastName' => 'Doe']);
+        $repo->assert()->exists(['firstName' => 'John', 'lastName' => 'Doe']);
     }//end of function
 
 
@@ -226,7 +226,7 @@ class SetUpFixtureEntityServiceTest extends KernelTestCase
         $setUpFixtureEntityService->createEntities($factory_product, $a_chunk_of_spawn_instructions, true);
 
         $repo = ProductFactory::repository();
-        $repo->assertCount($n_expected_entity_count);
+        $repo->assert()->count($n_expected_entity_count);
     }//end of function
 
 
@@ -256,7 +256,7 @@ class SetUpFixtureEntityServiceTest extends KernelTestCase
         $setUpFixtureEntityService->createEntities($factory_customer, [$a_spawn_instructions], true);
 
         $repo = CustomerFactory::repository();
-        $repo->assertCount($n_expected_entity_count);
+        $repo->assert()->count($n_expected_entity_count);
 
         // Assert expected staffCount property value was set correctly by the parameterized factory state
         if (array_key_exists('withStaffCount', $a_spawn_instructions)) {
