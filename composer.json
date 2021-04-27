@@ -9,12 +9,24 @@
             "email": "volodymyr.telnov@gmail.com"
         }
     ],
+    "keywords": [
+        "database",
+        "mysql",
+        "seeding",
+        "populate",
+        "entities",
+        "development",
+        "dev",
+        "testing",
+        "test",
+        "foundry"
+    ],
     "require": {
         "php": "^7.4",
         "symfony/config": "^5.1",
         "symfony/http-kernel": "^5.1",
         "symfony/dependency-injection": "^5.1",
-        "zenstruck/foundry": "1.9.*",
+        "zenstruck/foundry": "^1.10.0",
         "symfony/orm-pack": "^2.1",
         "fakerphp/faker": "^1.13"
     },

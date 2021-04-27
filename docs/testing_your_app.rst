@@ -650,15 +650,15 @@ are given elsewhere (e.g., in class constants or data providers).
 
 
 .. Links
-.. _`Global State`: https://github.com/zenstruck/foundry/tree/v1.9.1#global-state
+.. _`Global State`: https://github.com/zenstruck/foundry/tree/v1.10.0#global-state
 
-.. _`Model Factories`: https://github.com/zenstruck/foundry/tree/v1.9.1#model-factories
+.. _`Model Factories`: https://github.com/zenstruck/foundry/tree/v1.10.0#model-factories
 
 .. _`Loading Fixtures`: https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html#loading-fixtures
 
 .. _`mysqldump program examples`: https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-examples
 
-.. _`"Arrange", "Act", "Assert" testing patterns`: https://github.com/zenstruck/foundry/tree/v1.9.1#using-in-your-tests
+.. _`"Arrange", "Act", "Assert" testing patterns`: https://github.com/zenstruck/foundry/tree/v1.10.0#using-in-your-tests
 
 .. _`Data Providers`: https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html?highlight=data%20provider#data-providers
 
