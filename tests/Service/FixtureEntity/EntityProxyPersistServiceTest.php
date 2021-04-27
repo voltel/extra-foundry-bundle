@@ -17,6 +17,7 @@ use Voltel\ExtraFoundryBundle\Tests\Setup\Factory\OrderItemFactory;
 use Voltel\ExtraFoundryBundle\Tests\Setup\Factory\ProductFactory;
 use Voltel\ExtraFoundryBundle\Tests\Setup\Story\CustomerStory;
 use Voltel\ExtraFoundryBundle\Tests\Setup\Story\ProductStory;
+use Zenstruck\Foundry\AnonymousFactory;
 use Zenstruck\Foundry\Factory;
 use Zenstruck\Foundry\Instantiator;
 use Zenstruck\Foundry\Test\Factories;
@@ -180,7 +181,7 @@ class EntityProxyPersistServiceTest extends KernelTestCase
         $faker = self::$container->get('test.voltel_extra_foundry.faker_us');
 
         // Anonymous factory
-        $factory = (new Factory(Product::class))->withoutPersisting()
+        $factory = (new AnonymousFactory(Product::class))->withoutPersisting()
             ->withAttributes(function() use ($faker) {
                 return [
                     'productName' => $faker->words(3, true),

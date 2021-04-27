@@ -147,6 +147,11 @@ class VoltelExtraFoundryTestingKernel extends Kernel
             ;
             //</editor-fold>
 
+            // Since v1.9.0, explicit configuration of "auto_refresh_proxies" (will default to "true" in v2.0) is mandatory
+            $container->loadFromExtension('zenstruck_foundry', [
+                'auto_refresh_proxies' => true,
+            ]);
+
             //<editor-fold desc="Configure Doctrine">
             //echo PHP_EOL . 'Database URL: ' . $_ENV['DATABASE_URL'];
             $container->loadFromExtension('doctrine', [

@@ -547,19 +547,19 @@ and establish some of the relationships "in one go".
 
 .. _`DoctrineFixturesBundle`: https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
 
-.. _`Stories`: https://github.com/zenstruck/foundry/tree/v1.8.0#stories
+.. _`Stories`: https://github.com/zenstruck/foundry/tree/v1.9.1#stories
 
-.. _`Model Factories`: https://github.com/zenstruck/foundry/tree/v1.8.0#model-factories
+.. _`Model Factories`: https://github.com/zenstruck/foundry/tree/v1.9.1#model-factories
 
-.. _`Reusable Model Factory "States"`: https://github.com/zenstruck/foundry/tree/v1.8.0#reusable-model-factory-states
+.. _`Reusable Model Factory "States"`: https://github.com/zenstruck/foundry/tree/v1.9.1#reusable-model-factory-states
 
-.. _`Many-To-One`: https://github.com/zenstruck/foundry/tree/v1.8.0#many-to-one
+.. _`Many-To-One`: https://github.com/zenstruck/foundry/tree/v1.9.1#many-to-one
 
-.. _`Many-To-Many`: https://github.com/zenstruck/foundry/tree/v1.8.0#many-to-many
+.. _`Many-To-Many`: https://github.com/zenstruck/foundry/tree/v1.9.1#many-to-many
 
-.. _`Attributes`: https://github.com/zenstruck/foundry/tree/v1.8.0#attributes
+.. _`Attributes`: https://github.com/zenstruck/foundry/tree/v1.9.1#attributes
 
-.. _`Using with DoctrineFixtureBundle`: https://github.com/zenstruck/foundry/tree/v1.8.0#using-with-doctrinefixturesbundle
+.. _`Using with DoctrineFixtureBundle`: https://github.com/zenstruck/foundry/tree/v1.9.1#using-with-doctrinefixturesbundle
 
 .. _`unidirectional @ORM\\Many-To-One`: https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html#many-to-one-unidirectional
 

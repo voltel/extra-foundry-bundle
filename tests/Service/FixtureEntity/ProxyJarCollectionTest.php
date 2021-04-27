@@ -5,6 +5,7 @@ namespace Voltel\ExtraFoundryBundle\Tests\Service\FixtureEntity;
 
 use Doctrine\ORM\EntityManager;
 use Voltel\ExtraFoundryBundle\Tests\Setup\Entity\Product;
+use Zenstruck\Foundry\AnonymousFactory;
 use Zenstruck\Foundry\Factory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -56,7 +57,7 @@ class ProxyJarCollectionTest extends KernelTestCase
 
         // Add to the jar collection a proxy created by some anonymous factory
         // Note: we do not pass factory with the second argument
-        $factory = (new Factory(Category::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Category::class))->withoutPersisting();
         $proxy = $factory->create();
         $proxyJarCollection->addProxy($proxy);
         $this->assertCount(3, $proxyJarCollection->getProxyJars());
@@ -64,7 +65,7 @@ class ProxyJarCollectionTest extends KernelTestCase
         // Note: we do not pass factory with the second argument
         // Since there is no factory passed, and the FQCN is the same,
         // the count of jars shouldn't change
-        $factory = (new Factory(Category::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Category::class))->withoutPersisting();
         $proxy = $factory->create();
         $proxyJarCollection->addProxy($proxy);
         $this->assertCount(3, $proxyJarCollection->getProxyJars());
@@ -88,7 +89,7 @@ class ProxyJarCollectionTest extends KernelTestCase
 
         // Add to the jar collection a batch of proxies created by some anonymous factory
         // Note: we do not pass factory as a second argument
-        $factory = (new Factory(Category::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Category::class))->withoutPersisting();
         $proxy_batch = $factory->many(3)->create();
         $proxyJarCollection->addProxyBatch($proxy_batch);
         $this->assertCount(3, $proxyJarCollection->getProxyJars());
@@ -96,7 +97,7 @@ class ProxyJarCollectionTest extends KernelTestCase
         // Add to the jar collection a batch of proxies created by some anonymous factory
         // It is another factory object, but the same class of entities.
         // Since, factory is not passed as the second argument, the count of jars shouldn't change
-        $factory = (new Factory(Category::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Category::class))->withoutPersisting();
         $proxy_batch = $factory->many(3)->create();
         $proxyJarCollection->addProxyBatch($proxy_batch);
         $this->assertCount(3, $proxyJarCollection->getProxyJars());
@@ -193,13 +194,13 @@ class ProxyJarCollectionTest extends KernelTestCase
         $proxyJarCollection->addProxyBatch($proxy_batch, $factory_product);
 
         // Add to the jar collection a batch of proxies created by some anonymous factory
-        $factory = (new Factory(Product::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Product::class))->withoutPersisting();
         $proxy_batch = $factory->many(3)->create();
         $proxyJarCollection->addProxyBatch($proxy_batch, $factory);
 
         // Add to the jar collection a batch of proxies created by some anonymous factory
         // Note: we do not pass factory when adding proxies
-        $factory = (new Factory(Product::class))->withoutPersisting();
+        $factory = (new AnonymousFactory(Product::class))->withoutPersisting();
         $proxy_batch = $factory->many(3)->create();
         $proxyJarCollection->addProxyBatch($proxy_batch);
 
