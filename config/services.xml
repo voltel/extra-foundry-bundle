@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- https://symfony.com/doc/current/service_container.html#creating-configuring-services-in-the-container -->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Default configuration for services in *this* file -->
+        <defaults autowire="true" autoconfigure="true"/>
+
+
+        <service id="voltel_extra_foundry.persist_service" class="Voltel\ExtraFoundryBundle\Service\FixtureEntity\EntityProxyPersistService">
+            <argument type="service" id="doctrine" />
+            <argument type="tagged_locator" tag="foundry.factory" default-index-method="getClassName" />
+        </service>
+
+
+        <service id="voltel_extra_foundry.entity_setup" class="Voltel\ExtraFoundryBundle\Service\FixtureEntity\SetUpFixtureEntityService">
+            <argument type="service" id="voltel_extra_foundry.persist_service" />
+        </service>
+
+
+        <service id="voltel_extra_foundry.mysql_loader" class="Voltel\ExtraFoundryBundle\Service\FixtureLoad\MySqlDumpFileLoadingService">
+            <argument type="service" id="doctrine" />
+            <argument type="string" />
+        </service>
+
+
+        <service id="voltel_extra_foundry.sql_loader" class="Voltel\ExtraFoundryBundle\Service\FixtureLoad\SqlDumpLoaderService" >
+            <argument type="tagged_locator" tag="voltel_extra_foundry.database_dump_loader" default-index-method="getDatabaseType" />
+            <argument type="string" />
+            <argument type="string" />
+            <argument type="string">default</argument>
+        </service>
+
+
+        <!-- aliases for auto-wiring -->
+        <service id="Voltel\ExtraFoundryBundle\Service\FixtureEntity\SetUpFixtureEntityService" alias="voltel_extra_foundry.entity_setup" />
+        <service id="Voltel\ExtraFoundryBundle\Service\FixtureEntity\EntityProxyPersistService" alias="voltel_extra_foundry.persist_service" />
+        <service id="Voltel\ExtraFoundryBundle\Service\FixtureLoad\SqlDumpLoaderService" alias="voltel_extra_foundry.sql_loader" />
+        <service id="Voltel\ExtraFoundryBundle\Service\FixtureLoad\MySqlDumpFileLoadingService" alias="voltel_extra_foundry.mysql_loader" />
+
+    </services>
+</container>

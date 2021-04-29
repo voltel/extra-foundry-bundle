@@ -1,0 +1,7 @@
+composer.lock
+coverage.txt
+.phpunit.result.cache
+var/
+.idea/
+vendor/
+docs/_build/

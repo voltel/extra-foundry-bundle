@@ -1,0 +1,37 @@
+{
+    "name": "voltel/extra-foundry-bundle",
+    "description": "Extra features that make zenstruck/foundry work faster by postponed persistence and aggregated flush",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Volodymyr Telnov",
+            "email": "volodymyr.telnov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "symfony/config": "^5.1",
+        "symfony/http-kernel": "^5.1",
+        "symfony/dependency-injection": "^5.1",
+        "zenstruck/foundry": "1.7.*",
+        "symfony/orm-pack": "^2.1",
+        "fakerphp/faker": "^1.13"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.2",
+        "symfony/framework-bundle" : "5.2",
+        "symfony/browser-kit": "^5.2",
+        "ext-simplexml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Voltel\\ExtraFoundryBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Voltel\\ExtraFoundryBundle\\Tests\\": "tests/"
+        }
+    }
+}
